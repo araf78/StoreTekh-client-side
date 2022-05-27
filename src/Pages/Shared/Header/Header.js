@@ -12,6 +12,7 @@ const Header = () => {
         <li><Link to="/purchase">purchase</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/myorders">my orders</Link></li>
+        <li><Link to="/myportfolio">my portfolio</Link></li>
         {user?.uid ? (
           <button
             onClick={() => signOut(auth)}

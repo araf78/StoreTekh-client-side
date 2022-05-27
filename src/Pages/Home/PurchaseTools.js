@@ -58,7 +58,13 @@ const PurchaseTools = () => {
           "description": "In magna consectetur ullamco voluptate sunt sint eu magna nulla ad reprehenderit deserunt sunt labore.\r\n"
         }
       ]
+
+      // user  dbuser1
+// pass: oTvRQQXa72XRIn33
+
     return (
+      <div className=''>
+        <h2 className='text-3xl font-bold mt-20 '>Purchase Tools</h2>
         <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 gap-5 sm:justify-items-center'>
             {
                 tools.map(tool => <Tool
@@ -67,6 +73,7 @@ const PurchaseTools = () => {
                 ></Tool>)
             }                                                                                                                               
         </div>
+      </div>
     );
 };
 

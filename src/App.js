@@ -10,6 +10,7 @@ import RequireAuth from "./Pages/RequireAuth";
 import Footer from "./Pages/Shared/Footer";
 import Blogs from "./Pages/Blogs/Blogs";
 import NotFound from "./Pages/Shared/NotFound";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/myportfolio" element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

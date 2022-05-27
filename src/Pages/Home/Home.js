@@ -5,7 +5,7 @@ import PurchaseTools from './PurchaseTools';
 const Home = () => {
     return (
         <div>
-           <div className='px-12'>
+           <div className='p-12'>
            <HomeBanner></HomeBanner>
             <PurchaseTools></PurchaseTools>
            </div>

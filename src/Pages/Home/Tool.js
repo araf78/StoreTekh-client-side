@@ -6,7 +6,7 @@ const Tool = ({tool}) => {
     const navigate = useNavigate();
   
     return (
-        <div class="card  bg-base-100 shadow-xl ">
+        <div class="card  shadow-xl ">
         <figure class="">
           <img src={img} alt="Shoes" class="rounded-xl p-[-8]" />
         </figure>
@@ -17,7 +17,7 @@ const Tool = ({tool}) => {
           <p>Available Quantity: {availableQuantity}</p>
           <p>{description}</p>
           <div class="card-actions">
-            <button onClick={()=> navigate(`/tools/${id}`)} class="btn btn-primary">Purchase</button>
+            <button onClick={()=> navigate(`/tools/${id}`)} class="btn btn-neutral">Purchase</button>
           </div>
         </div>
       </div>
