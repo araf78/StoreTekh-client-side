@@ -9,7 +9,13 @@ const AddTool = () => {
       const onSubmit = data => {
           console.log(data)
         const url = ('http://localhost:3000/addorder')
-     
+        fetch(url,{
+            method:'PUT',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(data)
+        })
         .then(res => res.json())
         .then(result => {
             console.log('success', result)
