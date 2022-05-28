@@ -11,6 +11,8 @@ import Footer from "./Pages/Shared/Footer";
 import Blogs from "./Pages/Blogs/Blogs";
 import NotFound from "./Pages/Shared/NotFound";
 import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
+import DetailTool from "./Pages/Home/DetailTool";
+import AddTool from "./Pages/Home/AddTool";
 
 function App() {
   return (
@@ -24,6 +26,17 @@ function App() {
             <PurchaseTools></PurchaseTools>
           </RequireAuth>
         }></Route>
+        <Route path="/tool/:toolId" element={
+          <RequireAuth>
+           <DetailTool></DetailTool>
+          </RequireAuth>
+        }></Route>
+        <Route path="/addorder" element={
+          <RequireAuth>
+           <AddTool></AddTool>>
+          </RequireAuth>
+        }></Route>
+
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/myportfolio" element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
