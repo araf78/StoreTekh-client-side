@@ -11,8 +11,8 @@ const MyPortfolio = memo(() => {
       <p className="text-xl text-gray-600">Email: alarafath71@gmail.com</p>
       <p className="mt-3 mb-5">
         <small>
-          <span className="text-xl  text-gray-600">
-            Educational Background:
+          <span className="text-xl font-bold  text-gray-600">
+           Educational Background: 
           </span>
           <br />
           <p>Honour's 3rd Year</p>
@@ -23,7 +23,26 @@ const MyPortfolio = memo(() => {
       <p className="mt-3 mb-5">
         <small>
           <span className="text-xl  text-gray-600">
-            Three Website:
+            <span className="text-xl  text-gray-600 font-bold">Skills: </span><br/>
+            <ul>
+              <li>I receive some critical login when I effort this.  </li>
+              <li>I hope I can Teamwork Skills.</li>
+              <li>Communication.</li>
+            </ul>
+          </span>
+          <br />
+
+        </small>
+      </p>
+      <p className="mt-3 mb-5">
+        <small>
+          <span className="text-xl  text-gray-600">
+          <span className="text-xl  text-gray-600 font-bold">Three Website:</span> <br/>
+            <ul>
+              <li>https://pensive-hermann-c14600.netlify.app/</li>
+              <li>https://delightful-bavarois-98a0dc.netlify.app/</li>
+              <li>https://tranquil-stroopwafel-0fbf38.netlify.app/</li>
+            </ul>
           </span>
           <br />
 

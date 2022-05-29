@@ -9,9 +9,9 @@ const Header = () => {
     const menuItems =
      <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/purchase">purchase</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
-        <li><Link to="/myorders">my orders</Link></li>
+        <li><Link to="/addorder">Add Tool</Link></li>
         <li><Link to="/myportfolio">my portfolio</Link></li>
         {user?.uid ? (
           <button
@@ -38,7 +38,7 @@ const Header = () => {
     </div>
     <a class="btn btn-ghost normal-case text-xl ">StoreTekh</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="navbar-center hidden lg:flex mr-6">
     <ul class="menu menu-horizontal p-0">
       
         {menuItems}

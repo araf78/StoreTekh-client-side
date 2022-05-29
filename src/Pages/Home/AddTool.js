@@ -8,7 +8,7 @@ const AddTool = () => {
     const { register , handleSubmit } = useForm();
       const onSubmit = data => {
           console.log(data)
-        const url = ('http://localhost:3000/addorder')
+        const url = ('http://localhost:5000/addorder')
         fetch(url,{
             method:'PUT',
             headers:{
@@ -29,9 +29,6 @@ const AddTool = () => {
       <input type="email" placeholder="Email" disabled value={user?.email || ''} {...register('email', { require:true })} class="input w-full max-w-xs" />
       <input type="text" placeholder="Address" {...register('address')} class="input w-full max-w-xs" />
       <input type="text" placeholder="Phone" {...register('phone')} class="input w-full max-w-xs" />
-
-      
-     
       <input class="input w-full max-w-xs text-black" type="submit" value="Add Order" />
     </form>
     </div>

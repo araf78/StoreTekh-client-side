@@ -3,6 +3,7 @@ import React from "react";
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../firebase.init";
 import Loading from "./Loading";
 // import { FcGoogle } from 'react-icons/fc';
@@ -32,7 +33,7 @@ const Login = () => {
   // let from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
-      console.log(data);
+      // console.log(data);
       signInWithEmailAndPassword(data.email, data.password)
     };
 
@@ -49,7 +50,7 @@ const Login = () => {
     }
 
     if(error){
-      // toast(error.message)
+      toast(error.message)
     }
 
     if(loading || gLoading){

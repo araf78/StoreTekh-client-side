@@ -1,43 +1,108 @@
-import React, { memo, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, {  useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
+import auth from "../../firebase.init";
 
-const DetailTool = memo(() => {
+const DetailTool = () => {
   const { toolId } = useParams();
-
+  const [user] = useAuthState(auth);
   const [tool, setTool] = useState({});
-  console.log(tool);
+
+  // console.log(tool);
 
   useEffect(() => {
     const url = `http://localhost:5000/tool/${toolId}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setTool(data));
+      .then((data) => setTool(data)); 
   }, [toolId]);
-  return (
-    <div>
-        <h2 className="text-3xl font-bold text-emerald-700 mt-16 mb-14">Tool Detail Information</h2>
-        <div  className="grid grid-cols-1 justify-items-center mt-8 ">
 
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure class="px-10 pt-10">
-          <img src={tool.img} alt="" class="rounded-xl" />
-        </figure>
-        <div class="card-body items-center text-center">
-        <h2 class="card-title">{tool.name}</h2>
-          <p>Price: {tool.price}</p>
-          <p>Min Order Quantity: {tool.minOrderQuantity}</p>
-          <p>Available Quantity: {tool.availableQuantity}</p>
-          <p>{tool.description}</p>
-          <div class="card-actions">
-            <Link to="/checkout">
-            <button class="btn btn-neutral">CheckOut</button>
-            </Link>
+  const handlePurchase = (e) => {
+    e.preventDefault();
+    const order = {
+      address: e.target.address.value,
+      phone: e.target.phone.value,
+      quantity: e.target.quantity.value,
+      id: toolId,
+      email: user.email,
+      name : tool.name,
+      price : tool.price,
+    };
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) =>{
+        console.log(data)
+      });
+  }
+    return (
+      <div>
+        <h2 className="text-3xl font-bold text-emerald-700 mt-16 mb-14">
+          Tool Detail Information
+        </h2>
+        <div className="grid grid-cols-1 justify-items-center mt-8 ">
+          <div class="card w-96 bg-base-100 shadow-xl">
+            <figure class="px-10 pt-10">
+              <img src={tool.img} alt="" class="rounded-xl" />
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title mb-3">{tool.name}</h2>
+              <form
+                onSubmit={handlePurchase}
+                className="grid grid-cols-1 gap-3 w-full max-w-xs"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  disabled
+                  value={user?.displayName}
+                  class="input  w-full max-w-xs"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  disabled
+                  value={user?.email}
+                  class="input  w-full max-w-xs"
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  class="input  w-full max-w-xs"
+                />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Phone"
+                  class="input  w-full max-w-xs"
+                />
+                <input
+                  type="number"
+                  min={tool.minOrderQuantity}
+                  max={tool.availableQuantity}
+                  name="quantity"
+                  defaultValue={tool.minOrderQuantity}
+                  placeholder="Quantity"
+                  class="input  w-full max-w-xs"
+                />
+                <input
+                  type="text"
+                  name="description"
+                  placeholder="description"
+                  class="input  w-full max-w-xs"
+                />
+              <input type="submit" value="Purchase" className="btn btn-neutral " />
+              </form>
+            </div>
           </div>
         </div>
-        </div>
       </div>
-    </div>
-  );
-});
-
+    );
+  };
 export default DetailTool;

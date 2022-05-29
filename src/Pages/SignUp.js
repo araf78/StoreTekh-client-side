@@ -1,12 +1,14 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {  toast } from 'react-toastify';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from "../firebase.init";
+import useToken from '../Hooks/useToken';
 import Loading from "./Loading";
 
 const SignUp = () => {
-    const [signInWithGoogle, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const {
       register,
       formState: { errors },
@@ -14,18 +16,35 @@ const SignUp = () => {
     } = useForm();
   
     const [
-      signInWithEmailAndPassword,
+      createUserWithEmailAndPassword,
       user,
       loading,
       error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from?.pathname || "/";
+
+    const [token] = useToken(user || gUser);
+
+    if(user){
+      navigate(from, { replace: true })
+    }
+    if(gUser){
+      navigate(from, { replace: true })
+    }
+
     if(loading || gLoading){
         return <Loading/>
     }
+
+    if(error){
+      toast(error.message)
+    }
   
-    const onSubmit = (data) => {
-        console.log(data);
-        signInWithEmailAndPassword(data.email, data.password)
+    const onSubmit = async (data) => {
+        createUserWithEmailAndPassword(data.email, data.password)
       };
     return (
         <div class="hero h-screen-min ">
@@ -82,7 +101,7 @@ const SignUp = () => {
               </div>
               <div class="form-control w-full max-w-xs">
                 <label class="label">
-                  <span class="label-text">Email</span>
+                  <span class="label-text">Password</span>
                 </label>
                 <input
                   type="password"
