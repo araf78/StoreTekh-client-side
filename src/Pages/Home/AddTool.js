@@ -8,7 +8,7 @@ const AddTool = () => {
     const { register , handleSubmit } = useForm();
       const onSubmit = data => {
           console.log(data)
-        const url = ('http://localhost:5000/addorder')
+        const url = ('https://storetekh.web.app/addorder')
         fetch(url,{
             method:'PUT',
             headers:{

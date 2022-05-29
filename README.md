@@ -1,11 +1,11 @@
 # Project Name: StoreTekh
 
 
-# live link:
+# live link: https://storetekh.web.app/
 
-# client side link: 
+# client side link: https://github.com/programming-hero-web-course1/manufacturer-website-client-side-araf78
 
-# server side link:
+# server side link: https://github.com/programming-hero-web-course1/manufacturer-website-server-side-araf78
 
 # Bullet Points:
 

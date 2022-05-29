@@ -11,7 +11,7 @@ const DetailTool = () => {
   // console.log(tool);
 
   useEffect(() => {
-    const url = `http://localhost:5000/tool/${toolId}`;
+    const url = `https://storetekh.web.app/tool/${toolId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTool(data)); 
@@ -28,7 +28,7 @@ const DetailTool = () => {
       name : tool.name,
       price : tool.price,
     };
-    fetch("http://localhost:5000/order", {
+    fetch("https://storetekh.web.app/order", {
       method: "POST",
       headers: {
         'content-type': 'application/json'

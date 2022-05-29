@@ -9,7 +9,7 @@ const useToken = (user) =>{
     useEffect(()=>{
         // console.log('user inside useToken', user);
         if(email){
-            fetch(`http://localhost:5000/user/${email}`, {
+            fetch(`https://storetekh.web.app/user/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'

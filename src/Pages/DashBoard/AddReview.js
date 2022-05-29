@@ -7,7 +7,7 @@ const AddReview = () => {
           rating: e.target.rating.value,
           description: e.target.description.value,
         };
-        fetch("http://localhost:5000/review", {
+        fetch("https://storetekh.web.app/review", {
           method: "POST",
           headers: {
             'content-type': 'application/json'
