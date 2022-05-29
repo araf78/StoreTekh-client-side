@@ -24,13 +24,13 @@ const Blogs = () => {
       <div className="card  bg-base-100 shadow-xl bg-neutral text-white">
         <div className="card-body">
           <h2 className="card-title">Q4. Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h2>
-          <p> </p>
+          <p>If react state update and component is refreshed then it will update all terms where state use.But If you will use (products = [...]) type it does not change all terms. When you use setState react work internally.  </p>
         </div>
       </div>
       <div className="card  bg-base-100 shadow-xl bg-neutral text-white">
         <div className="card-body">
           <h2 className="card-title">Q5. You have an array of products. Each product has a name, price, description, etc. How will you implement a search to find products by name?</h2>
-          <p> </p>
+          <p> array.filter( product => product.name.includes(searchText)) </p>
         </div>
       </div>
       <div className="card  bg-base-100 shadow-xl bg-neutral text-white">
