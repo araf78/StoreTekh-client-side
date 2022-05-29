@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 const MyPortfolio = memo(() => {
   return (
-    <div class="mockup-window border  border-lime-500  m-20">
+    <div className="mockup-window border  border-lime-500  m-20">
       <h2 className="pb-6 text-5xl font-bold text-emerald-800">My Portfolio</h2>
       <h2 className=" text-2xl font-bold text-neutral-800">
         Name : Jannat Al Arafath

@@ -6,18 +6,18 @@ const Tool = ({tool}) => {
     const navigate = useNavigate();
   
     return (
-        <div class="card  shadow-xl ">
-        <figure class="">
-          <img src={img} alt="Shoes" class="rounded-xl p-[-8]" />
+        <div className="card  shadow-xl ">
+        <figure className="">
+          <img src={img} alt="Shoes" className="rounded-xl p-[-8]" />
         </figure>
-        <div class="card-body items-center text-center">
-          <h2 class="card-title">{name}</h2>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">{name}</h2>
           <p>Price: {price}</p>
           <p>Min Order Quantity: {minOrderQuantity}</p>
           <p>Available Quantity: {availableQuantity}</p>
           <p>{description}</p>
-          <div class="card-actions">
-            <button onClick={()=> navigate(`/tool/${_id}`)} class="btn btn-neutral">Purchase</button>
+          <div className="card-actions">
+            <button onClick={()=> navigate(`/tool/${_id}`)} className="btn btn-neutral">Purchase</button>
           </div>
         </div>
       </div>

@@ -46,12 +46,12 @@ const DetailTool = () => {
           Tool Detail Information
         </h2>
         <div className="grid grid-cols-1 justify-items-center mt-8 ">
-          <div class="card w-96 bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-              <img src={tool.img} alt="" class="rounded-xl" />
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+              <img src={tool.img} alt="" className="rounded-xl" />
             </figure>
-            <div class="card-body items-center text-center">
-              <h2 class="card-title mb-3">{tool.name}</h2>
+            <div className="card-body items-center text-center">
+              <h2 className="card-title mb-3">{tool.name}</h2>
               <form
                 onSubmit={handlePurchase}
                 className="grid grid-cols-1 gap-3 w-full max-w-xs"
@@ -61,26 +61,26 @@ const DetailTool = () => {
                   name="name"
                   disabled
                   value={user?.displayName}
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
                 <input
                   type="email"
                   name="email"
                   disabled
                   value={user?.email}
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
                 <input
                   type="text"
                   name="address"
                   placeholder="Address"
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
                 <input
                   type="text"
                   name="phone"
                   placeholder="Phone"
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
                 <input
                   type="number"
@@ -89,13 +89,13 @@ const DetailTool = () => {
                   name="quantity"
                   defaultValue={tool.minOrderQuantity}
                   placeholder="Quantity"
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
                 <input
                   type="text"
                   name="description"
                   placeholder="description"
-                  class="input  w-full max-w-xs"
+                  className="input  w-full max-w-xs"
                 />
               <input type="submit" value="Purchase" className="btn btn-neutral " />
               </form>

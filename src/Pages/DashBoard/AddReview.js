@@ -20,9 +20,9 @@ const AddReview = () => {
           });
       }
     return (
-        <div class="card w-96 bg-base-100 shadow-xl mx-auto mt-3">
+        <div className="card w-96 bg-base-100 shadow-xl mx-auto mt-3">
 
-        <div class="card-body items-center text-center">
+        <div className="card-body items-center text-center">
             <h2 className='text-xl font-bold mb-3'>Add A Review</h2>
              <form
                 onSubmit={handleReviews}
@@ -32,13 +32,13 @@ const AddReview = () => {
                   type="text"
                   name="rating"
                   placeholder="Rating Star"
-                  class="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-xs"
                 />
                 <input
                   type="text"
                   name="description"
                   placeholder="Description"
-                  class="input input-bordered w-full max-w-xs"
+                  className="input input-bordered w-full max-w-xs"
                 />
               <input type="submit" value="Add Review" className="btn btn-neutral " />
               </form>

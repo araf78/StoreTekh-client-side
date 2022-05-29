@@ -42,15 +42,15 @@ const BusinessSummary = () => {
         </div>
       </div>
 
-      <div class="card w-100vh bg-base-100 shadow-xl mt-4 opacity-96">
-        <div class="card-body grid grid-cols-2">
+      <div className="card w-100vh bg-base-100 shadow-xl mt-4 opacity-96">
+        <div className="card-body grid grid-cols-2">
            <div>
            <p className=" font-bold text-emerald-700">How any questions about us? Or get a product request.</p>
             <p>Don't hesitate to contact us</p>
            </div>
            <div>
-           <button class="btn text-white bg-emerald-600 mr-2">Request For Quote</button>
-           <button class="btn">contact us</button>
+           <button className="btn text-white bg-emerald-600 mr-2">Request For Quote</button>
+           <button className="btn">contact us</button>
            </div>
         </div>
       </div>

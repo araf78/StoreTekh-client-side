@@ -6,7 +6,7 @@ import { signOut } from 'firebase/auth';
 
 const MyOrders = () => {
 
-    const [appointments, setAppointments] = useState([]);
+    const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
@@ -20,20 +20,25 @@ const MyOrders = () => {
             })
                 .then(res => {
                     console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken');
+                        navigate('/');
+                    }
                     return res.json()
                 })
                 .then(data => {
 
-                    setAppointments(data);
+                    setOrders(data);
                 });
         }
     }, [user])
 
     return (
         <div>
-            <h2 className='text-xl font-bold mb-3 mt-3'>My Orders: {appointments.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h2 className='text-xl font-bold mb-3 mt-3'>My Orders: {orders.length}</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -44,7 +49,7 @@ const MyOrders = () => {
                     </thead>
                     <tbody>
                         {
-                            appointments.map((a, index) => <tr key={a._id}>
+                            orders.map((a, index) => <tr key={a._id}>
                                 <th>{index + 1}</th>
                                 <td>{a.name}</td>
                                 <td>{a.email}</td>
