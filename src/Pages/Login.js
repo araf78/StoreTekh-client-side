@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../firebase.init";
+import useToken from "../Hooks/useToken";
 import Loading from "./Loading";
 // import { FcGoogle } from 'react-icons/fc';
 
@@ -22,6 +23,8 @@ const Login = () => {
     loading,
     error,
   ] = useSignInWithEmailAndPassword(auth);
+
+  const [token] = useToken(user || gUser)
  
   const location = useLocation();
    const navigate = useNavigate();
@@ -42,10 +45,7 @@ const Login = () => {
       signInWithGoogle()
     }
 
-    if(user){
-      navigate(from, { replace: true })
-    }
-    if(gUser){
+    if(token){
       navigate(from, { replace: true })
     }
 

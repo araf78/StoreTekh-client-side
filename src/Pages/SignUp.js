@@ -28,10 +28,8 @@ const SignUp = () => {
 
     const [token] = useToken(user || gUser);
 
-    if(user){
-      navigate(from, { replace: true })
-    }
-    if(gUser){
+   
+    if(token){
       navigate(from, { replace: true })
     }
 

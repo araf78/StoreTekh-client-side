@@ -17,7 +17,7 @@ const Header = () => {
           <button
             onClick={() => signOut(auth)}
           >
-            Sign Up
+          Log Out
           </button>
         ) : 
           <li><Link className='flex justify-items-center' to="/login">Login</Link></li>
