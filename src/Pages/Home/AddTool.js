@@ -2,13 +2,14 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
+import { toast } from 'react-toastify';
 
 const AddTool = () => {
     const [user] = useAuthState(auth);
     const { register , handleSubmit } = useForm();
       const onSubmit = data => {
           console.log(data)
-        const url = ('https://storetekh.web.app/addorder')
+        const url = ('https://immense-sands-56460.herokuapp.com/addorder')
         fetch(url,{
             method:'PUT',
             headers:{
@@ -18,7 +19,7 @@ const AddTool = () => {
         })
         .then(res => res.json())
         .then(result => {
-            console.log('success', result)
+           toast('Successfully Tool ')
         })
         };
   return (

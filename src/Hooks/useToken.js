@@ -9,7 +9,7 @@ const useToken = (user) =>{
     useEffect(()=>{
         // console.log('user inside useToken', user);
         if(email){
-            fetch(`https://storetekh.web.app/user/${email}`, {
+            fetch(`https://immense-sands-56460.herokuapp.com/user/${email}`, {
                 method:'PUT',
                 headers: {
                     'content-type': 'application/json'

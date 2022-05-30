@@ -1,7 +1,7 @@
 # Project Name: StoreTekh
 
 
-# live link: https://storetekh.web.app/
+# live link: https://immense-sands-56460.herokuapp.com/
 
 # client side link: https://github.com/programming-hero-web-course1/manufacturer-website-client-side-araf78
 

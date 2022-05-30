@@ -22,6 +22,7 @@ import AddReview from "./Pages/DashBoard/AddReview";
 import ManageAllOrders from "./Pages/DashBoard/ManageAllOrders";
 import MakeAdmin from "./Pages/DashBoard/MakeAdmin";
 import ManageTools from "./Pages/DashBoard/ManageTools";
+import MyProfileShow from "./Pages/MyProfile/MyProfileShow";
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
            <AddTool></AddTool>
           </RequireAuth>
         }></Route>
+        <Route path="showmyprofile" element={<MyProfileShow></MyProfileShow>}></Route>
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route index element={<MyOrders></MyOrders>}></Route>
           {/* <Route path="review" element={<MyReview></MyReview>}></Route>
@@ -54,6 +56,7 @@ function App() {
           <Route path="addDoctor" element={<RequireAdmin><AddDoctor></AddDoctor></RequireAdmin>}></Route>
         <Route path="manageDoctor" element={<RequireAdmin><ManageDoctors></ManageDoctors></RequireAdmin>}></Route> */}
         <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+        
         <Route path="addreview" element={<AddReview></AddReview>}></Route>
         <Route path="manageorders" element={<ManageAllOrders></ManageAllOrders>}></Route>
         <Route path="makeadmin" element={<MakeAdmin></MakeAdmin>}></Route>

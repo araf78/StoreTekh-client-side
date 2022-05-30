@@ -5,7 +5,7 @@ const PurchaseTools = () => {
   const [tools, setTools] = useState([]);
 
   useEffect(() =>{
-    fetch('https://storetekh.web.app/tools')
+    fetch('https://immense-sands-56460.herokuapp.com/tools')
     .then(res => res.json())
     .then( data => setTools(data))
   },[])

@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddReview = () => {
     const handleReviews = (e) => {
@@ -7,7 +8,7 @@ const AddReview = () => {
           rating: e.target.rating.value,
           description: e.target.description.value,
         };
-        fetch("https://storetekh.web.app/review", {
+        fetch("https://immense-sands-56460.herokuapp.com/review", {
           method: "POST",
           headers: {
             'content-type': 'application/json'
@@ -16,7 +17,7 @@ const AddReview = () => {
         })
           .then((res) => res.json())
           .then((data) =>{
-            console.log(data)
+            toast('Add a Review Successfully')
           });
       }
     return (

@@ -17,6 +17,7 @@ const Header = () => {
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/addorder">Add Tool</Link></li>
         <li><Link to="/myportfolio">my portfolio</Link></li>
+        <li><Link to="/showmyprofile">My Profile</Link></li>
         {user?.uid ? (
           <button
             onClick={logOut}

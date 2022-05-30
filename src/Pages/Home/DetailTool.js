@@ -1,6 +1,7 @@
 import React, {  useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const DetailTool = () => {
@@ -11,7 +12,7 @@ const DetailTool = () => {
   // console.log(tool);
 
   useEffect(() => {
-    const url = `https://storetekh.web.app/tool/${toolId}`;
+    const url = `https://immense-sands-56460.herokuapp.com/tool/${toolId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setTool(data)); 
@@ -28,7 +29,7 @@ const DetailTool = () => {
       name : tool.name,
       price : tool.price,
     };
-    fetch("https://storetekh.web.app/order", {
+    fetch("https://immense-sands-56460.herokuapp.com/order", {
       method: "POST",
       headers: {
         'content-type': 'application/json'
@@ -37,7 +38,7 @@ const DetailTool = () => {
     })
       .then((res) => res.json())
       .then((data) =>{
-        console.log(data)
+       toast("Purchase Successfully")
       });
   }
     return (
